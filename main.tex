@@ -1,7 +1,9 @@
 %\documentclass[a4paper]{article}
 %\documentclass[iop]{emulateapj}
-\documentclass[usenatbib,onecolumn]{mnras}
+%\documentclass[usenatbib,onecolumn]{mnras}
 
+\documentclass[times]{aastex62}
+%\pdfoutput=1 %for arXiv submission
 
 %% Language and font encodings
 \usepackage[english]{babel}
@@ -10,7 +12,7 @@
 \usepackage{amssymb}
 
 %% Sets page size and margins
-\usepackage[a4paper,top=3cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
+%\usepackage[a4paper,top=3cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
 \usepackage[abs]{overpic}
 
 
@@ -46,17 +48,17 @@
 \def\ssp{\def\baselinestretch{1.0}\large\normalsize}
 \newcommand{\oneskip}{\vskip \baselineskip}
 %\newcommand{\annrev}{ARA\&A}
-\newcommand{\apj}{ApJ}%% Journal abbreviations
-\newcommand{\apjs}{ApJS}
-\newcommand{\apjl}{ApJL}
-\newcommand{\aap}{A{\&}A}
-\newcommand{\aaps}{A{\&}AS}
-\newcommand{\mnras}{MNRAS}
-\newcommand{\jcap}{JCAP}
-\newcommand{\aj}{AJ}
-\newcommand{\araa}{ARAA}
-\newcommand{\pasp}{PASP}
-\newcommand{\nat}{Nature}
+%\newcommand{\apj}{ApJ}%% Journal abbreviations
+%\newcommand{\apjs}{ApJS}
+%\newcommand{\apjl}{ApJL}
+%\newcommand{\aap}{A{\&}A}
+%\newcommand{\aaps}{A{\&}AS}
+%\newcommand{\mnras}{MNRAS}
+%\newcommand{\jcap}{JCAP}
+%\newcommand{\aj}{AJ}
+%\newcommand{\araa}{ARAA}
+%\newcommand{\pasp}{PASP}
+%\newcommand{\nat}{Nature}
 \newcommand{\zd}{z$_{ damped}$}
 \newcommand{\za}{z$_{ abs}$}
 \newcommand{\zg}{z$_{ galaxy}$}
@@ -67,7 +69,7 @@
 \newcommand{\tu}{$\tau( > M)$}
 \newcommand{\mc}{$10^{12}M_{\odot}$}
 \renewcommand{\vec}[1]{\mathbf{#1}}
-\newcommand{\vr}{\vec{r}}
+%\newcommand{\vr}{\vec{r}}
 \newcommand{\vq}{\vec{q}}
 \newcommand{\vx}{\vec{x}}
 \newcommand{\vk}{\vec{k}}
@@ -83,7 +85,7 @@
 \newcommand*{\rb}  {\right)}
 \newcommand*{\ls}  {\left[}
 \newcommand*{\rs}  {\right]}
-\newcommand*{\la}  {\left\langle}
+%\newcommand*{\la}  {\left\langle}
 \newcommand*{\ra}  {\right\rangle}
 
 
@@ -91,18 +93,18 @@
 \usepackage{amsmath}
 \usepackage{graphicx}
 \usepackage[colorinlistoftodos]{todonotes}
-\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+\usepackage[colorlinks=true]{hyperref}
+
+\begin{document}
 
 \title{TARDIS: Tomographic Absorption Reconstruction and Density Inference Scheme}
 \author{Me and my friends}
 
-\begin{document}
-\maketitle
 
 \begin{abstract}
 We present a new inference scheme, TARDIS, for the reconstruction of $z \approx 2.5$ cosmic structure from observations of spatially close Lyman Alpha forest absorption measurements based on reconstruction of the initial ($z \sim 100$) density field which gives rise to observed structures. We show that this technique provides an accurate reconstruction of the observed flux field, as well as provides a framework for inferring the late time fate of observed structures. In particular, for next generation surveys we find that TARDIS moderately outperforms direct Wiener filtering for reconstructing the absorption field and $z\approx 2.5$ cosmic web.
 \end{abstract}
-\tableofcontents
+\
 \section{Introduction}
 
 [mostly copied from my NSF-GROW proposal; will need to be reworked...]
@@ -300,7 +302,7 @@ Note that one could use the velocity field from the reconstruction itself to det
   \begin{center}
     \label{tab:table1}
     \begin{tabular}{c|c|c|c|c|c|c} % <-- Alignments: 1st column left, 2nd middle and 3rd right, with vertical lines in between
-      \textbf{Name} & \textbf{N-body} & \textbf{LOS Separation} &\textbf{LOS Density} & \textbf{SNR$_{\textrf min}$} &\textbf{SNR$_{\textrf max}$} & \textbf{Volume} \ \
+      \textbf{Name} & \textbf{N-body} & \textbf{LOS Separation} &\textbf{LOS Density} & \textbf{SNR$_{\textrm min}$} &\textbf{SNR$_{\textrm max}$} & \textbf{Volume} \ \
       &  & & Mpc/h &  (Mpc/$h$)$^{-2}$ & & & (Mpc/$h$)$^3$ \\
       \hline
     \hline
@@ -323,7 +325,7 @@ In addition to the TreePM run, we also have a mock catalog generated from FastPM
 
 \subsection{Noise Modeling}
 \label{subsec:noise}
-For noise, we assume white spectographic noise which varies among skewers but is constant along each skewer. To simulate realistic variance between each skewer, we follow (\cite{Stark2015,2018Krolewski}) and draw the SNR from a powerlaw distribution with minimum value of SNR$_{\textrf min}$ (i.e.  i.e. $dn_{\textrf los}/dS/N \propto S/N^{−\alpha}$) and spectral amplitude of $\alpha=2.7$. To be conservative, we also impose a maximal SNR for all mock datasets.(\cite{Lee2017})
+For noise, we assume white spectographic noise which varies among skewers but is constant along each skewer. To simulate realistic variance between each skewer, we follow (\cite{Stark2015,2018Krolewski}) and draw the SNR from a powerlaw distribution with minimum value of SNR$_{\textrm min}$ (i.e.  i.e. $dn_{\textrm los}/dS/N \propto S/N^{−\alpha}$) and spectral amplitude of $\alpha=2.7$. To be conservative, we also impose a maximal SNR for all mock datasets.(\cite{Lee2017})
 
 
 \begin{figure}
@@ -529,7 +531,7 @@ By $n=100$ we find good agreement up to $k = 1.0$ Mpc/h, justifying our use of t
 
 In the main body of this work we have held cosmological and astrophysical parameters constant for the reconstructions. Here we briefly explore how wrong assumptions about the astrophysics or cosmology would bias our late time density field. 
 
-We use a different mock catalog, \texttt{T-IDEAL}, in order to examine the effects of varying the astrophysical parameters. This catalog has a constant signal to noise of $50$ along each skewer, no continuum error, and a sightline density twice that of \textttt{T-30MT-A}. The idea of this super-experiment is to isolate the effects of the astrophysics from other potential sources of noise in the reconstruction.
+We use a different mock catalog, \texttt{T-IDEAL}, in order to examine the effects of varying the astrophysical parameters. This catalog has a constant signal to noise of $50$ along each skewer, no continuum error, and a sightline density twice that of \texttt{T-30MT-A}. The idea of this super-experiment is to isolate the effects of the astrophysics from other potential sources of noise in the reconstruction.
 
 \begin{figure}
 \centering 
